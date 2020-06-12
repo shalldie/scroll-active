@@ -61,4 +61,50 @@ At the same time, clicking the navigation menu will also make the page scroll to
 | offset      |  `number`  |     `0`     | offset used to activate navigation <br> 距离激活导航使用的偏移量                           |
 | update      | `Function` | `undefined` | callbacks triggered when a navigation change is active <br> 在激活的导航变更时，触发的回调 |
 
+## dispose
+
+Sometimes you are using an `mvvm` lib, such as `react` or `vue`, you may need to call the `dispose` function and renew `ScrollActive`, if the nav items change.
+
+在使用一些 `mvvm` 库的时候，如果组件的更新会影响导航元素，需要去释放资源并重新初始化该组件。
+
+example:
+
+```js
+var sa = new ScrollActive();
+```
+
+```js
+// react:
+class ReactComponent extends React {
+    componentDidMount() {
+        this.sa = new ScrollActive();
+    }
+
+    componentDidUpdate() {
+        this.sa.dispose();
+        this.sa = new ScrollActive();
+    }
+
+    componentWillUnmount() {
+        this.sa.dispose();
+    }
+}
+```
+
+```js
+// vue:
+export default {
+    mounted() {
+        this.sa = new ScrollActive();
+    },
+    updated() {
+        this.sa.dispose();
+        this.sa = new ScrollActive();
+    },
+    beforeDestroy() {
+        this.sa.dispose();
+    }
+};
+```
+
 ## Enjoy it! :D

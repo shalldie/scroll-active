@@ -14,7 +14,7 @@ export default class ScrollActive {
 
     private menuList: HTMLElement[] = []; // 所有菜单元素
 
-    constructor(options: ActiveOptions) {
+    constructor(options: ActiveOptions = {}) {
         this.options = Object.assign({}, new ActiveOptions(), options);
         this.initialize();
     }
