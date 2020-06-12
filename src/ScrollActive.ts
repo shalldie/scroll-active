@@ -1,5 +1,5 @@
 import ActiveOptions from './lib/ActiveOptions';
-import { getScrollTop, getAbsPoint, tweenScroll } from './lib/utils';
+import { getScrollTop, getAbsPoint, tweenScroll, pushState } from './lib/utils';
 
 const ATTR_SCROLL_ACTIVE = 'data-scroll-active'; // 要监听的 menu item，需要添加这个 attribute
 
@@ -45,6 +45,7 @@ export default class ScrollActive {
         const targetIndex = this.idList.indexOf(id);
 
         tweenScroll(getAbsPoint(this.targetList[targetIndex]).y - this.options.offset!, 500);
+        this.options.hash && pushState(id);
     };
 
     private handleScroll = () => {

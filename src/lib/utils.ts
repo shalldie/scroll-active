@@ -64,3 +64,14 @@ export function tweenScroll(to: number, duration: number): void {
         }
     });
 }
+
+/**
+ * 替换地址栏中的hash
+ *
+ * @export
+ * @param {string} id
+ */
+export function pushState(id: string): void {
+    const url = location.href.split('#')[0] + '#' + encodeURIComponent(id);
+    history.pushState(null, '', url);
+}

@@ -18,6 +18,12 @@ export default class ActiveOptions {
      */
     offset? = 0;
     /**
+     * 点击导航，是否改变 hash
+     *
+     * @memberof ActiveOptions
+     */
+    hash? = false;
+    /**
      * active 项改变时触发
      *
      * @memberof ActiveOptions
