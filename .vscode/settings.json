@@ -1,0 +1,9 @@
+{
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "prettier.disableLanguages": [
+        "html"
+    ]
+}

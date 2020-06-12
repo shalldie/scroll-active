@@ -1,0 +1,36 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+.container {
+    position: relative;
+    width: 500px;
+    margin: 100px auto;
+    padding-bottom: 500px;
+
+    .row {
+        height: 100px;
+        margin-bottom: 300px;
+        background: #ddd;
+    }
+}
+
+.right-menu {
+    position: fixed;
+    width: 280px;
+    left: 50%;
+    top: 100px;
+    margin-left: 300px;
+
+    .item {
+        margin-top: 20px;
+        cursor: pointer;
+
+        &.active {
+            color: #f00;
+        }
+    }
+}
