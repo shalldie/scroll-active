@@ -12,9 +12,27 @@ body {
     padding-bottom: 500px;
 
     .row {
-        height: 100px;
-        margin-bottom: 300px;
+        min-height: 300px;
+        margin-bottom: 30px;
         background: #ddd;
+    }
+}
+
+.top-menu {
+    position: fixed;
+    // width: 280px;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%);
+
+    .item {
+        display: inline-block;
+        cursor: pointer;
+        margin: 0 10px;
+
+        &.active {
+            color: #f00;
+        }
     }
 }
 

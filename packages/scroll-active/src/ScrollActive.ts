@@ -14,7 +14,7 @@ export default class ScrollActive {
 
     private menuList: HTMLElement[] = []; // 所有菜单元素
 
-    constructor(options: ActiveOptions = {}) {
+    constructor(options: Partial<ActiveOptions> = {}) {
         this.options = Object.assign({}, new ActiveOptions(), options);
         this.initialize();
     }
@@ -23,14 +23,11 @@ export default class ScrollActive {
         // init listener
         window.addEventListener('scroll', this.handleScroll);
 
-        this.idList = ([].slice.call(document.querySelectorAll(`[${ATTR_SCROLL_ACTIVE}]`)) as HTMLElement[]).map(ele =>
-            ele.getAttribute(ATTR_SCROLL_ACTIVE)
-        ) as string[];
+        const wrapper = this.options.wrapper;
 
+        this.menuList = [].slice.call(wrapper.querySelectorAll(`[${ATTR_SCROLL_ACTIVE}]`)) as HTMLElement[];
+        this.idList = this.menuList.map(ele => ele.getAttribute(ATTR_SCROLL_ACTIVE)) as string[];
         this.targetList = this.idList.map(id => document.getElementById(id)) as HTMLElement[];
-        this.menuList = this.idList.map(id =>
-            document.querySelector(`[${ATTR_SCROLL_ACTIVE}="${id}"]`)
-        ) as HTMLElement[];
 
         this.menuList.forEach(ele => {
             ele.addEventListener('click', this.handleMenuClick);
@@ -44,7 +41,7 @@ export default class ScrollActive {
         const id = el.getAttribute(ATTR_SCROLL_ACTIVE) as string;
         const targetIndex = this.idList.indexOf(id);
 
-        tweenScroll(getAbsPoint(this.targetList[targetIndex]).y - this.options.offset!, 500);
+        tweenScroll(getAbsPoint(this.targetList[targetIndex]).y - this.options.offset, 500);
         this.options.hash && pushState(id);
     };
 
@@ -54,7 +51,7 @@ export default class ScrollActive {
 
         for (let i = 0; i < this.targetList.length; i++) {
             const offsetTop = getAbsPoint(this.targetList[i]).y;
-            if (scrollTop >= offsetTop - this.options.offset!) {
+            if (scrollTop >= offsetTop - this.options.offset) {
                 activeIndex = i;
             } else {
                 break;
@@ -68,12 +65,12 @@ export default class ScrollActive {
             return;
         }
 
-        const activeClass = this.options.activeClass!;
+        const activeClass = this.options.activeClass;
 
         this.activeIndex = activeIndex;
         this.options.update && this.options.update(this.idList[activeIndex]);
         this.menuList.forEach(ele => {
-            ele.classList.remove(activeClass!);
+            ele.classList.remove(activeClass);
         });
         this.menuList[activeIndex].classList.add(activeClass);
     }
