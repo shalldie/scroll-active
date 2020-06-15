@@ -1,44 +1,21 @@
 {
-  "name": "scroll-active",
-  "version": "0.0.3",
-  "description": "A lightweight lib for making navigation elements active as you scroll.",
-  "main": "dist/scroll-active.js.js",
-  "types": "dist/ScrollActive.d.ts",
+  "name": "root",
+  "private": true,
   "scripts": {
-    "dev": "rimraf dist && cross-env NODE_ENV=development rollup -cw",
-    "build": "rimraf dist && cross-env NODE_ENV=production rollup -c",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "lerna clean --yes",
+    "bootstrap": "lerna bootstrap",
+    "build:lp": "lerna run build",
+    "build": "sh scripts/build.sh",
     "lint": "eslint --ext .js,.ts .",
-    "fix": "eslint --fix --ext .js,.ts ."
+    "fix": "eslint --fix --ext .js,.ts .",
+    "lp": "lerna publish"
   },
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org"
-  },
-  "files": [
-    "dist"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/shalldie/scroll-active.git"
-  },
-  "keywords": [
-    "scroll",
-    "active",
-    "highlight",
-    "menu"
-  ],
-  "author": "shalldie",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/shalldie/scroll-active/issues"
-  },
-  "homepage": "https://github.com/shalldie/scroll-active#readme",
   "devDependencies": {
     "@nosaid/eslint-config-for-typescript": "0.0.7",
-    "@nosaid/rollup": "0.0.10",
+    "@nosaid/rollup": "0.0.16",
     "cross-env": "^7.0.2",
+    "lerna": "^3.22.1",
     "rimraf": "^3.0.2",
-    "tween-task": "0.0.8",
     "typescript": "^3.9.5"
   }
 }

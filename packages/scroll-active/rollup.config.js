@@ -1,4 +1,5 @@
-import { rollupGenerator } from '@nosaid/rollup';
+// eslint-disable-next-line
+const rollupGenerator = require('../../node_modules/@nosaid/rollup').rollupGenerator;
 
 const ifPro = process.env.NODE_ENV === 'production';
 

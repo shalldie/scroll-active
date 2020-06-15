@@ -10,11 +10,11 @@ export default class ScrollActive {
 
     private idList: string[] = []; // id 列表
 
+    private navbarList: HTMLElement[] = []; // 所有菜单元素
+
     private targetList: HTMLElement[] = []; // 页面中要监听的所有元素
 
-    private menuList: HTMLElement[] = []; // 所有菜单元素
-
-    constructor(options: ActiveOptions = {}) {
+    constructor(options: Partial<ActiveOptions> = {}) {
         this.options = Object.assign({}, new ActiveOptions(), options);
         this.initialize();
     }
@@ -23,16 +23,13 @@ export default class ScrollActive {
         // init listener
         window.addEventListener('scroll', this.handleScroll);
 
-        this.idList = ([].slice.call(document.querySelectorAll(`[${ATTR_SCROLL_ACTIVE}]`)) as HTMLElement[]).map(ele =>
-            ele.getAttribute(ATTR_SCROLL_ACTIVE)
-        ) as string[];
+        const wrapper = this.options.wrapper;
 
+        this.navbarList = [].slice.call(wrapper.querySelectorAll(`[${ATTR_SCROLL_ACTIVE}]`)) as HTMLElement[];
+        this.idList = this.navbarList.map(ele => ele.getAttribute(ATTR_SCROLL_ACTIVE)) as string[];
         this.targetList = this.idList.map(id => document.getElementById(id)) as HTMLElement[];
-        this.menuList = this.idList.map(id =>
-            document.querySelector(`[${ATTR_SCROLL_ACTIVE}="${id}"]`)
-        ) as HTMLElement[];
 
-        this.menuList.forEach(ele => {
+        this.navbarList.forEach(ele => {
             ele.addEventListener('click', this.handleMenuClick);
         });
 
@@ -44,7 +41,7 @@ export default class ScrollActive {
         const id = el.getAttribute(ATTR_SCROLL_ACTIVE) as string;
         const targetIndex = this.idList.indexOf(id);
 
-        tweenScroll(getAbsPoint(this.targetList[targetIndex]).y - this.options.offset!, 500);
+        tweenScroll(getAbsPoint(this.targetList[targetIndex]).y - this.options.offset, 500);
         this.options.hash && pushState(id);
     };
 
@@ -54,7 +51,7 @@ export default class ScrollActive {
 
         for (let i = 0; i < this.targetList.length; i++) {
             const offsetTop = getAbsPoint(this.targetList[i]).y;
-            if (scrollTop >= offsetTop - this.options.offset!) {
+            if (scrollTop >= offsetTop - this.options.offset) {
                 activeIndex = i;
             } else {
                 break;
@@ -68,14 +65,14 @@ export default class ScrollActive {
             return;
         }
 
-        const activeClass = this.options.activeClass!;
+        const activeClass = this.options.activeClass;
 
         this.activeIndex = activeIndex;
         this.options.update && this.options.update(this.idList[activeIndex]);
-        this.menuList.forEach(ele => {
-            ele.classList.remove(activeClass!);
+        this.navbarList.forEach(ele => {
+            ele.classList.remove(activeClass);
         });
-        this.menuList[activeIndex].classList.add(activeClass);
+        this.navbarList[activeIndex].classList.add(activeClass);
     }
     /**
      * 释放资源
@@ -84,10 +81,11 @@ export default class ScrollActive {
      */
     public dispose(): void {
         window.removeEventListener('scroll', this.handleScroll);
-        this.menuList.forEach(ele => {
+        this.navbarList.forEach(ele => {
             ele.removeEventListener('click', this.handleMenuClick);
         });
+        this.idList = [];
         this.targetList = [];
-        this.menuList = [];
+        this.navbarList = [];
     }
 }
