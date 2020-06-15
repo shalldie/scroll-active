@@ -113,4 +113,4 @@ export default {
 
 ## Enjoy it! :D
 
-[v-scroll-active]: https://github.com/shalldie/scroll-active/packages/v-scroll-active
+[v-scroll-active]: https://github.com/shalldie/scroll-active/tree/master/packages/v-scroll-active
