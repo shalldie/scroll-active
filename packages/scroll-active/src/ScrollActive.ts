@@ -10,9 +10,9 @@ export default class ScrollActive {
 
     private idList: string[] = []; // id 列表
 
-    private targetList: HTMLElement[] = []; // 页面中要监听的所有元素
+    private navbarList: HTMLElement[] = []; // 所有菜单元素
 
-    private menuList: HTMLElement[] = []; // 所有菜单元素
+    private targetList: HTMLElement[] = []; // 页面中要监听的所有元素
 
     constructor(options: Partial<ActiveOptions> = {}) {
         this.options = Object.assign({}, new ActiveOptions(), options);
@@ -25,11 +25,11 @@ export default class ScrollActive {
 
         const wrapper = this.options.wrapper;
 
-        this.menuList = [].slice.call(wrapper.querySelectorAll(`[${ATTR_SCROLL_ACTIVE}]`)) as HTMLElement[];
-        this.idList = this.menuList.map(ele => ele.getAttribute(ATTR_SCROLL_ACTIVE)) as string[];
+        this.navbarList = [].slice.call(wrapper.querySelectorAll(`[${ATTR_SCROLL_ACTIVE}]`)) as HTMLElement[];
+        this.idList = this.navbarList.map(ele => ele.getAttribute(ATTR_SCROLL_ACTIVE)) as string[];
         this.targetList = this.idList.map(id => document.getElementById(id)) as HTMLElement[];
 
-        this.menuList.forEach(ele => {
+        this.navbarList.forEach(ele => {
             ele.addEventListener('click', this.handleMenuClick);
         });
 
@@ -69,10 +69,10 @@ export default class ScrollActive {
 
         this.activeIndex = activeIndex;
         this.options.update && this.options.update(this.idList[activeIndex]);
-        this.menuList.forEach(ele => {
+        this.navbarList.forEach(ele => {
             ele.classList.remove(activeClass);
         });
-        this.menuList[activeIndex].classList.add(activeClass);
+        this.navbarList[activeIndex].classList.add(activeClass);
     }
     /**
      * 释放资源
@@ -81,10 +81,11 @@ export default class ScrollActive {
      */
     public dispose(): void {
         window.removeEventListener('scroll', this.handleScroll);
-        this.menuList.forEach(ele => {
+        this.navbarList.forEach(ele => {
             ele.removeEventListener('click', this.handleMenuClick);
         });
+        this.idList = [];
         this.targetList = [];
-        this.menuList = [];
+        this.navbarList = [];
     }
 }

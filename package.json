@@ -4,12 +4,14 @@
   "scripts": {
     "clean": "lerna clean --yes",
     "bootstrap": "lerna bootstrap",
+    "build:lp": "lerna run build",
+    "build": "sh scripts/build.sh",
     "lint": "eslint --ext .js,.ts .",
     "fix": "eslint --fix --ext .js,.ts ."
   },
   "devDependencies": {
     "@nosaid/eslint-config-for-typescript": "0.0.7",
-    "@nosaid/rollup": "0.0.10",
+    "@nosaid/rollup": "0.0.16",
     "cross-env": "^7.0.2",
     "lerna": "^3.22.1",
     "rimraf": "^3.0.2",

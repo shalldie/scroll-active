@@ -37,6 +37,8 @@ export function getAbsPoint(ele: HTMLElement): { x: number; y: number } {
     return { x, y };
 }
 
+let task: Task<any>;
+
 /**
  * 使用缓动函数滚动到某个位置
  *
@@ -46,7 +48,10 @@ export function getAbsPoint(ele: HTMLElement): { x: number; y: number } {
  * @returns {void}
  */
 export function tweenScroll(to: number, duration: number): void {
-    Task.run({
+    if (task) {
+        task.dispose();
+    }
+    task = Task.run({
         from: {
             y: getScrollTop()
         },
