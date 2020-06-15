@@ -67,7 +67,7 @@ At the same time, clicking the navigation menu will also make the page scroll to
 | hash        | `boolean`  |   `false`   | offset used to activate navigation <br> 距离激活导航使用的偏移量                           |
 | update      | `Function` | `undefined` | callbacks triggered when a navigation change is active <br> 在激活的导航变更时，触发的回调 |
 
-## dispose
+## Dispose
 
 Sometimes you are using an `mvvm` lib, such as `react` or `vue`, you may need to call the `dispose` function and renew `ScrollActive`, if the nav items change.
 
