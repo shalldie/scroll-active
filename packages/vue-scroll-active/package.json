@@ -11,6 +11,13 @@
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
   },
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shalldie/scroll-active.git"
+  },
   "keywords": [
     "vue",
     "scroll",
@@ -20,6 +27,10 @@
   ],
   "author": "shalldie",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shalldie/scroll-active/issues"
+  },
+  "homepage": "https://github.com/shalldie/scroll-active#readme",
   "peerDependencies": {
     "vue": "*"
   },

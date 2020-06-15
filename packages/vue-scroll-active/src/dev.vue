@@ -27,16 +27,13 @@ export default {
     data() {
         return {
             tip: '',
-            idList: ['section 1', 'section 2', 'section 3', 'section4', '第五行', '第 六 行']
+            idList: ['section 1', 'section 2', 'section 3', 'section4', '第五项', '第 六 项']
         };
     },
     methods: {
         handleNavbarChange(id) {
             this.tip = `当前 active id 为：${id}`;
         }
-    },
-    mounted() {
-        window['ele'] = this;
     }
 };
 </script>
