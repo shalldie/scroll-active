@@ -1,6 +1,6 @@
 {
   "name": "scroll-active",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "A lightweight lib for making navigation elements active as you scroll.",
   "main": "dist/scroll-active.js",
   "types": "dist/ScrollActive.d.ts",
