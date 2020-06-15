@@ -4,25 +4,25 @@
             <div v-for="(id, index) in idList" :key="index" :id="id" class="row">{{ id }}</div>
         </div>
         <div class="top-menu">
-            <VueScrollActive offset="40" :hash="true">
+            <VScrollActive offset="40" :hash="true">
                 <div v-for="(id, index) in idList" :key="index" class="item" :data-scroll-active="id">{{ id }}</div>
-            </VueScrollActive>
+            </VScrollActive>
         </div>
         <div class="right-menu">
-            <VueScrollActive offset="40" :hash="true" @update="handleNavbarChange">
+            <VScrollActive offset="40" :hash="true" @update="handleNavbarChange">
                 <div id="tip">{{ tip }}</div>
                 <div v-for="(id, index) in idList" :key="index" class="item" :data-scroll-active="id">{{ id }}</div>
-            </VueScrollActive>
+            </VScrollActive>
         </div>
     </div>
 </template>
 
 <script>
-import VueScrollActive from './VueScrollActive.vue';
+import VScrollActive from './VScrollActive.vue';
 
 export default {
     components: {
-        VueScrollActive
+        VScrollActive
     },
     data() {
         return {

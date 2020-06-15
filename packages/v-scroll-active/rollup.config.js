@@ -9,8 +9,8 @@ export default rollupGenerator([
     {
         input: ifPro ? 'src/main.ts' : 'src/dev.ts', // 入口文件，支持 `js|ts` 文件
         output: {
-            name: 'VueScrollActive', // library 名称
-            file: 'dist/vue-scroll-active.js', // 产出文件名
+            name: 'VScrollActive', // library 名称
+            file: 'dist/v-scroll-active.js', // 产出文件名
             format: 'umd', // umd 格式
             globals: {
                 vue: 'Vue'

@@ -1,7 +1,7 @@
-# vue-scroll-active
+# v-scroll-active
 
-[![npm](https://img.shields.io/npm/v/vue-scroll-active)](https://www.npmjs.com/package/vue-scroll-active)
-[![file size](https://img.shields.io/github/size/shalldie/scroll-active/dist/vue-scroll-active.js)](https://github.com/shalldie/scroll-active)
+[![npm](https://img.shields.io/npm/v/v-scroll-active)](https://www.npmjs.com/package/v-scroll-active)
+[![file size](https://img.shields.io/github/size/shalldie/scroll-active/dist/v-scroll-active.js)](https://github.com/shalldie/scroll-active)
 [![Build Status](https://travis-ci.org/shalldie/scroll-active.svg?branch=master)](https://travis-ci.org/shalldie/scroll-active)
 
 A vue component for making navigation elements active as you scroll, a wrapper of [scroll-active][scroll-active] .
@@ -10,17 +10,17 @@ A vue component for making navigation elements active as you scroll, a wrapper o
 
 ## Installation
 
-    npm install vue-scroll-active --save
+    npm install v-scroll-active --save
 
 ## Usage
 
 ```html
 <!-- nav bar -->
 <div class="navbar">
-    <VueScrollActive offset="40" :hash="true" @update="handleNavbarChange">
+    <VScrollActive offset="40" :hash="true" @update="handleNavbarChange">
         ...
         <span data-scroll-active="menuOne">menu one</span>
-    </VueScrollActive>
+    </VScrollActive>
 </div>
 
 <!-- main page -->
@@ -32,15 +32,15 @@ A vue component for making navigation elements active as you scroll, a wrapper o
 
 ```ts
 // window
-// const VueScrollActive = window['VueScrollActive'];
+// const VScrollActive = window['VScrollActive'];
 // commonjs like
-// const VueScrollActive = require('vue-scroll-active');
+// const VScrollActive = require('v-scroll-active');
 // es module, typescript
-import VueScrollActive from './VueScrollActive.vue';
+import VScrollActive from './VScrollActive.vue';
 
 export default {
     components: {
-        VueScrollActive
+        VScrollActive
     },
     methods: {
         handleNavbarChange(id) {

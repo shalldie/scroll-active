@@ -12,6 +12,6 @@ rm -rf dist
 mkdir dist
 
 cp packages/scroll-active/dist/scroll-active.js dist/scroll-active.js
-cp packages/vue-scroll-active/dist/vue-scroll-active.js dist/vue-scroll-active.js
+cp packages/v-scroll-active/dist/v-scroll-active.js dist/v-scroll-active.js
 
 echo "--- build 完毕 >_<#@! ---"

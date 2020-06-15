@@ -10,7 +10,7 @@ A lightweight lib for making navigation elements active as you scroll.
 
 ## Related
 
-[vue-scroll-active][vue-scroll-active]: A version of vue component. Vue 版本。
+[v-scroll-active][v-scroll-active]: A version of vue component. Vue 版本。
 
 ## Installation
 
@@ -93,7 +93,7 @@ class ReactComponent extends React {
 }
 ```
 
-Here is a version for vue: [vue-scroll-active][vue-scroll-active]
+Here is a version for vue: [v-scroll-active][v-scroll-active]
 
 ```js
 // vue:
@@ -113,4 +113,4 @@ export default {
 
 ## Enjoy it! :D
 
-[vue-scroll-active]: https://github.com/shalldie/scroll-active/packages/vue-scroll-active
+[v-scroll-active]: https://github.com/shalldie/scroll-active/packages/v-scroll-active

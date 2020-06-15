@@ -8,7 +8,7 @@
 import ScrollActive from 'scroll-active';
 
 export default {
-    name: 'vue-scroll-active',
+    name: 'v-scroll-active',
     props: {
         activeClass: {
             default: 'active'
