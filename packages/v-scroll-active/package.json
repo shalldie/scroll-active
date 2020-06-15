@@ -1,6 +1,6 @@
 {
   "name": "v-scroll-active",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A lightweight vue component for making navigation elements active as you scroll.",
   "main": "dist/v-scroll-active.js",
   "scripts": {
@@ -37,7 +37,7 @@
   "devDependencies": {
     "@rollup/plugin-buble": "^0.21.3",
     "rollup-plugin-vue": "^5.1.9",
-    "scroll-active": "^0.0.5",
+    "scroll-active": "^0.0.6",
     "vue": "^2.6.11",
     "vue-template-compiler": "^2.6.11"
   }
