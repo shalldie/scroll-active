@@ -38,9 +38,11 @@ A vue component for making navigation elements active as you scroll, a wrapper o
 // es module, typescript
 import VScrollActive from './VScrollActive.vue';
 
+// Vue.use(VScrollActive); // global
+
 export default {
     components: {
-        VScrollActive
+        VScrollActive // local
     },
     methods: {
         handleNavbarChange(id) {
