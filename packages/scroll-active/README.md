@@ -12,6 +12,10 @@ A lightweight lib for making navigation elements active as you scroll.
 
 [v-scroll-active][v-scroll-active]: A version of vue component. Vue 版本。
 
+## Live Demo
+
+[live demo](https://shalldie.github.io/demos/scroll-active/)
+
 ## Installation
 
     npm install scroll-active --save

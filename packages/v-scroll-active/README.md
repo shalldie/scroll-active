@@ -8,6 +8,10 @@ A vue component for making navigation elements active as you scroll, a wrapper o
 
 在滚动时激活对应导航的 vue 组件，封装自 [scroll-active][scroll-active] 。
 
+## Live Demo
+
+[live demo](https://shalldie.github.io/demos/v-scroll-active/)
+
 ## Installation
 
     npm install v-scroll-active --save
