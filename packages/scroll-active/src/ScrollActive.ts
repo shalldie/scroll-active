@@ -41,7 +41,12 @@ export default class ScrollActive {
         const id = el.getAttribute(ATTR_SCROLL_ACTIVE) as string;
         const targetIndex = this.idList.indexOf(id);
 
-        tweenScroll(getAbsPoint(this.targetList[targetIndex]).y - this.options.offset, 500);
+        const targetEl = this.targetList[targetIndex];
+        if (!targetEl) {
+            return;
+        }
+
+        tweenScroll(getAbsPoint(targetEl).y - this.options.offset, 500);
         this.options.hash && pushState(id);
     };
 
@@ -50,7 +55,11 @@ export default class ScrollActive {
         let activeIndex = 0;
 
         for (let i = 0; i < this.targetList.length; i++) {
-            const offsetTop = getAbsPoint(this.targetList[i]).y;
+            const targetEl = this.targetList[i];
+            if (!targetEl) {
+                continue;
+            }
+            const offsetTop = getAbsPoint(targetEl).y;
             if (scrollTop >= offsetTop - this.options.offset) {
                 activeIndex = i;
             } else {
