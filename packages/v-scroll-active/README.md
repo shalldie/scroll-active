@@ -1,8 +1,8 @@
 # v-scroll-active
 
-[![npm](https://img.shields.io/npm/v/v-scroll-active)](https://www.npmjs.com/package/v-scroll-active)
-[![file size](https://img.shields.io/github/size/shalldie/scroll-active/dist/v-scroll-active.js)](https://github.com/shalldie/scroll-active)
-[![Build Status](https://github.com/shalldie/scroll-active/actions/workflows/node.js.yml/badge.svg)](https://github.com/shalldie/scroll-active/actions)
+[![npm](https://img.shields.io/npm/v/v-scroll-active?logo=npm&style=flat-square)](https://www.npmjs.com/package/v-scroll-active)
+[![file size](https://img.shields.io/github/size/shalldie/scroll-active/dist/v-scroll-active.js?style=flat-square)](https://github.com/shalldie/scroll-active)
+[![Build Status](https://img.shields.io/github/workflow/status/shalldie/scroll-active/ci?label=build&logo=github&style=flat-square)](https://github.com/shalldie/scroll-active/actions)
 
 A vue component for making navigation elements active as you scroll, a wrapper of [scroll-active][scroll-active] .
 
