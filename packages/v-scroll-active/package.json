@@ -36,7 +36,7 @@
   },
   "devDependencies": {
     "@rollup/plugin-buble": "^0.21.3",
-    "rollup-plugin-vue": "^5.1.9",
+    "rollup-plugin-vue": "^6.0.0",
     "scroll-active": "^0.0.9",
     "vue": "^2.6.11",
     "vue-template-compiler": "^2.6.11"
