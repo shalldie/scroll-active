@@ -79,9 +79,9 @@ export default class ScrollActive {
         this.activeIndex = activeIndex;
         this.options.update && this.options.update(this.idList[activeIndex]);
         this.navbarList.forEach(ele => {
-            ele.classList.remove(activeClass);
+            ele?.classList.remove(activeClass);
         });
-        this.navbarList[activeIndex].classList.add(activeClass);
+        this.navbarList[activeIndex]?.classList.add(activeClass);
     }
     /**
      * 释放资源
