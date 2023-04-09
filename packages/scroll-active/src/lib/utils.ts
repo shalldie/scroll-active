@@ -45,9 +45,10 @@ let task: Task<any>;
  * @export
  * @param {number} to 目标位置
  * @param {number} duration 完成动作耗时
+ * @param {function} done 完成动作后的回调
  * @returns {void}
  */
-export function tweenScroll(to: number, duration: number): void {
+export function tweenScroll(to: number, duration: number, done?: () => void): void {
     if (task) {
         task.dispose();
     }
@@ -66,7 +67,8 @@ export function tweenScroll(to: number, duration: number): void {
         },
         onUpdate({ y }) {
             setScrollTop(y);
-        }
+        },
+        done
     });
 }
 
