@@ -14,6 +14,8 @@ export default class ScrollActive {
 
     private targetList: HTMLElement[] = []; // 页面中要监听的所有元素
 
+    private isScrolling = false; // 当前是否处于鼠标点击菜单后的滚动状态
+
     constructor(options: Partial<ActiveOptions> = {}) {
         this.options = Object.assign({}, new ActiveOptions(), options);
         this.initialize();
@@ -40,14 +42,20 @@ export default class ScrollActive {
         const el = ev.currentTarget as HTMLElement;
         const id = el.getAttribute(ATTR_SCROLL_ACTIVE) as string;
         const targetIndex = this.idList.indexOf(id);
-
         const targetEl = this.targetList[targetIndex];
         if (!targetEl) {
             return;
         }
 
-        tweenScroll(getAbsPoint(targetEl).y - this.options.offset, 500);
+        this.isScrolling = true;
+        tweenScroll(getAbsPoint(targetEl).y - this.options.offset, 500, () => {
+            // 滚动完毕 清空flag
+            this.isScrolling = false;
+        });
         this.options.hash && pushState(id);
+
+        // 激活当前点击过的锚点菜单状态
+        this.update(targetIndex);
     };
 
     private handleScroll = () => {
@@ -66,7 +74,11 @@ export default class ScrollActive {
                 break;
             }
         }
-        this.update(activeIndex);
+
+        // 非点击行为的时候触发滚动更新
+        if (!this.isScrolling) {
+            this.update(activeIndex);
+        }
     };
 
     private update(activeIndex: number) {
